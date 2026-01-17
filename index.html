@@ -2,64 +2,86 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Ing. Camarillo | Presencia digital accesible</title>
-  <meta name="description" content="Aprendo, aplico y enseño a crear páginas web reales, gratuitas y profesionales.">
+
+  <title>Conectando México | Educación digital y tecnología</title>
+
+  <meta name="description" content="Conectando México impulsa la educación digital y tecnológica para personas, comunidades y organizaciones en México.">
+
+  <meta name="author" content="Ing. Camarillo">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="styles.css">
+  <!-- SEO Social / WhatsApp -->
+  <meta property="og:title" content="Conectando México">
+  <meta property="og:description" content="Educación digital y tecnología accesible para todos.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://conectandomexico.org">
+  <meta property="og:image" content="https://conectandomexico.org/og-image.png">
 
-  <!-- AOS Animations -->
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
   <!-- HERO -->
-  <section class="hero">
-    <h1 data-aos="fade-up">Ing. Camarillo</h1>
-    <p data-aos="fade-up" data-aos-delay="200">
-      Aprendo, aplico y enseño a crear presencia digital real y gratuita
-    </p>
-
-    <div class="buttons" data-aos="fade-up" data-aos-delay="400">
-      <a href="https://wa.me/5212215579926" class="btn">WhatsApp</a>
-      <a href="#contacto" class="btn secondary">Contacto</a>
-    </div>
+  <section class="section hero">
+    <h1>Conectando México</h1>
+    <p>Educación digital y tecnología accesible para todos</p>
+    <a href="#contacto" class="btn">Contáctanos</a>
   </section>
 
-  <!-- SOBRE MÍ -->
-  <section class="section" data-aos="fade-right">
-    <h2>Sobre mí</h2>
+  <!-- SECCIÓN 1 -->
+  <section class="section reveal">
+    <h2>¿Quiénes somos?</h2>
     <p>
-      Creo soluciones digitales usando herramientas gratuitas,
-      enfocadas en aprender y enseñar a otros a hacer lo mismo.
+      Conectando México es una iniciativa enfocada en reducir la brecha digital,
+      capacitando personas, comunidades y organizaciones mediante tecnología.
     </p>
   </section>
 
-  <!-- SERVICIOS -->
-  <section class="section" data-aos="fade-left">
-    <h2>Servicios</h2>
-    <ul>
-      <li>Creación de páginas web reales</li>
-      <li>Asesoría en dominios, DNS y correo</li>
-      <li>Capacitación paso a paso</li>
-    </ul>
+  <!-- SECCIÓN 2 -->
+  <section class="section reveal">
+    <h2>¿Qué hacemos?</h2>
+    <p>
+      Formación, acompañamiento y soluciones tecnológicas prácticas,
+      pensadas para el contexto real de México.
+    </p>
   </section>
 
   <!-- CONTACTO -->
-  <section class="section" id="contacto" data-aos="zoom-in">
+  <section class="section reveal" id="contacto">
     <h2>Contacto</h2>
-    <p>Escríbeme directamente:</p>
-    <a href="mailto:contacto@tudominio.com" class="btn">Correo</a>
+
+    <form class="contact-form">
+      <input type="text" name="nombre" placeholder="Tu nombre" required>
+      <input type="email" name="email" placeholder="Tu correo" required>
+      <textarea name="mensaje" placeholder="Tu mensaje" required></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+
+    <p class="nota">
+      Este formulario se conectará al backend en el siguiente paso.
+    </p>
   </section>
 
-  <!-- AOS Script -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <footer>
+    <p>© 2026 Conectando México · Ing. Camarillo</p>
+  </footer>
+
+  <!-- SCRIPT SCROLL -->
   <script>
-    AOS.init({
-      duration: 1000,
-      once: true
+    const reveals = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+        }
+      });
+    }, { threshold: 0.2 });
+
+    reveals.forEach(section => {
+      observer.observe(section);
     });
   </script>
 
